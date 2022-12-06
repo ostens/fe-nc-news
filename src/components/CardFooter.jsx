@@ -9,10 +9,13 @@ function CardFooter({ votes, comment_count }) {
         <p>{votes}</p>
         <img src={downArrow} className="icon" alt="down arrow icon"></img>
       </section>
-      <section className="comments">
-        <img src={comment} className="icon" alt="speech bubble icon"></img>
-        <p>{comment_count}</p>
-      </section>
+
+      {comment_count ? (
+        <section className="comments">
+          <img src={comment} className="icon" alt="speech bubble icon"></img>{" "}
+          <p>{comment_count}</p>
+        </section>
+      ) : null}
     </footer>
   );
 }

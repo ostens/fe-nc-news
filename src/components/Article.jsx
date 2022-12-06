@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import { fetchArticle } from "../utils/api";
 import CardHeader from "./CardHeader";
 import CardFooter from "./CardFooter";
+import CommentList from "./CommentList";
 
 function Article() {
   const [article, setArticle] = useState({});
@@ -34,6 +35,7 @@ function Article() {
           votes={article.votes}
           comment_count={article.comment_count}
         />
+        <CommentList articleId={id} />
       </div>
     );
 }

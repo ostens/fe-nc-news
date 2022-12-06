@@ -11,7 +11,7 @@ function CardHeader({ author, created_at, topic }) {
           <p className="date-time">{created_at}</p>
         </section>
       </section>
-      <p className="pill">{topic}</p>
+      {topic ? <p className="pill">{topic}</p> : null}
     </header>
   );
 }
