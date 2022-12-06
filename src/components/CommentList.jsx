@@ -22,7 +22,11 @@ function CommentList({ articleId }) {
         <li key={comment.comment_id}>
           <CardHeader author={comment.author} created_at={comment.created_at} />
           <p>{comment.body}</p>
-          <CardFooter votes={comment.votes} />
+          <CardFooter
+            votes={comment.votes}
+            id={comment.comment_id}
+            article={false}
+          />
         </li>
       ))}
     </ul>
