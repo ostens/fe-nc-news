@@ -46,11 +46,11 @@ button {
 }
 
 .green {
-  border: solid rgba(0, 128, 0, 0.7);
+  background: rgba(0, 128, 0, 0.3);
 }
 
 .red {
-  border: solid rgba(255, 0, 0, 0.7);
+  background: rgba(255, 0, 0, 0.3);
 }
 
 .link {
@@ -78,6 +78,8 @@ footer > section {
   width: 20px;
   height: 20px;
   opacity: 0.5;
+  display: block;
+  border-radius: 50%;
 }
 
 .pill {
