@@ -5,12 +5,24 @@ import { voteById } from "../utils/api";
 
 function CardFooter({ votes, comment_count, id, article = true }) {
   const [optimisticVotes, setOptimisticVotes] = useState(votes);
-  const [voted, setVoted] = useState("");
+  const [currentVote, setCurrentVote] = useState(null);
   const [err, setErr] = useState(null);
 
-  const handleVote = (increment) => {
+  const handleVote = (voteDirection) => {
+    let increment = voteDirection === "up" ? 1 : -1;
+
+    if (!currentVote) {
+      setCurrentVote(voteDirection);
+    } else if (currentVote === voteDirection) {
+      increment = -1 * increment;
+      setCurrentVote(null);
+    } else {
+      increment = 2 * increment;
+      setCurrentVote(voteDirection);
+    }
+
     setOptimisticVotes((currVotes) => currVotes + increment);
-    setVoted(increment === 1 ? "up" : "down");
+
     setErr(null);
     voteById(id, increment, article).catch((err) => {
       setOptimisticVotes((currVotes) => currVotes - 1);
@@ -24,18 +36,18 @@ function CardFooter({ votes, comment_count, id, article = true }) {
       <section className="votes">
         <button
           onClick={() => {
-            handleVote(1);
+            handleVote("up");
           }}
-          className={voted === "up" ? "green" : "grey"}
+          className={currentVote === "up" ? "green" : null}
         >
           <img src={upArrow} className="icon" alt="up arrow icon"></img>
         </button>
         <p>{optimisticVotes}</p>
         <button
           onClick={() => {
-            handleVote(-1);
+            handleVote("down");
           }}
-          className={voted === "down" ? "red" : "grey"}
+          className={currentVote === "down" ? "red" : null}
         >
           <img src={downArrow} className="icon" alt="down arrow icon"></img>
         </button>
