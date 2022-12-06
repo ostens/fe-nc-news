@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { fetchArticles } from "../utils/api";
 import "../App.css";
-import { upArrow, downArrow, profile, comment } from "../icons";
+import { Link } from "react-router-dom";
+import CardHeader from "./CardHeader";
+import CardFooter from "./CardFooter";
 
 function ArticleList() {
   const [articles, setArticles] = useState([]);
@@ -15,51 +17,28 @@ function ArticleList() {
   }, []);
 
   if (isLoading) return <p>Getting your articles...</p>;
-  else
-    return (
-      <ul>
-        {articles.map((article) => {
-          return (
-            <li key={article.article_id}>
-              <header>
-                <section className="author">
-                  <img
-                    src={profile}
-                    className="profile-icon"
-                    alt="profile icon"
-                  ></img>
-                  <section className="author-details">
-                    <h3>{article.author}</h3>
-                    <p className="date-time">{article.created_at}</p>
-                  </section>
-                </section>
-                <p className="pill">{article.topic}</p>
-              </header>
+  return (
+    <ul>
+      {articles.map((article) => {
+        return (
+          <li key={article.article_id}>
+            <CardHeader
+              author={article.author}
+              created_at={article.created_at}
+              topic={article.topic}
+            />
+            <Link to={`/articles/${article.article_id}`} className="link">
               <h2>{article.title}</h2>
-              <footer>
-                <section className="votes">
-                  <img src={upArrow} className="icon" alt="up arrow icon"></img>
-                  <p>{article.votes}</p>
-                  <img
-                    src={downArrow}
-                    className="icon"
-                    alt="down arrow icon"
-                  ></img>
-                </section>
-                <section className="comments">
-                  <img
-                    src={comment}
-                    className="icon"
-                    alt="speech bubble icon"
-                  ></img>
-                  <p>{article.comment_count}</p>
-                </section>
-              </footer>
-            </li>
-          );
-        })}
-      </ul>
-    );
+            </Link>
+            <CardFooter
+              votes={article.votes}
+              comment_count={article.comment_count}
+            />
+          </li>
+        );
+      })}
+    </ul>
+  );
 }
 
 export default ArticleList;
