@@ -5,13 +5,16 @@ import CardHeader from "./CardHeader";
 
 function CommentList({ articleId }) {
   const [comments, setComments] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     fetchCommentsByArticleId(articleId).then((comments) => {
       setComments(comments);
+      setIsLoading(false);
     });
   }, [articleId]);
 
+  if (isLoading) return <p>Getting your comments...</p>;
   return (
     <ul>
       {comments.map((comment) => (
