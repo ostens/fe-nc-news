@@ -15,6 +15,7 @@ function CommentList({ articleId }) {
   }, [articleId]);
 
   if (isLoading) return <p>Getting your comments...</p>;
+  if (!comments.length) return <p>Looks like there aren't any comments yet!</p>;
   return (
     <ul>
       {comments.map((comment) => (
