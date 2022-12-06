@@ -38,6 +38,21 @@ li {
   padding: 5px;
 }
 
+button {
+  border: solid white;
+  cursor: pointer;
+  padding: 5px;
+  border-radius: 100%;
+}
+
+.green {
+  border: solid rgba(0, 128, 0, 0.7);
+}
+
+.red {
+  border: solid rgba(255, 0, 0, 0.7);
+}
+
 .link {
   text-decoration: none;
 }

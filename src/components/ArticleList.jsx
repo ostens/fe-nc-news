@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { fetchArticles } from "../utils/api";
-import "../App.css";
 import { Link } from "react-router-dom";
 import CardHeader from "./CardHeader";
 import CardFooter from "./CardFooter";
@@ -33,6 +32,7 @@ function ArticleList() {
             <CardFooter
               votes={article.votes}
               comment_count={article.comment_count}
+              id={article.article_id}
             />
           </li>
         );

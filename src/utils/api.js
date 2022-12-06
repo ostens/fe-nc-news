@@ -23,3 +23,9 @@ export const fetchCommentsByArticleId = (id) => {
       return comments;
     });
 };
+
+export const voteById = (id, votes, article = true) => {
+  return ncNewsApi.patch(article ? `/articles/${id}` : `/comments/${id}`, {
+    inc_votes: votes,
+  });
+};
