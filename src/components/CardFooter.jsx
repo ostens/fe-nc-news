@@ -1,5 +1,4 @@
 import { useState } from "react";
-
 import { upArrow, downArrow, comment } from "../icons";
 import { voteById } from "../utils/api";
 
@@ -33,25 +32,27 @@ function CardFooter({ votes, comment_count, id, article = true }) {
   if (err) return <p>{err}</p>;
   return (
     <footer className="card-footer">
-      <section className="votes">
-        <button
-          onClick={() => {
-            handleVote("up");
-          }}
-          className={currentVote === "up" ? "green" : null}
-        >
-          <img src={upArrow} className="icon" alt="up arrow icon"></img>
-        </button>
-        <p>{optimisticVotes}</p>
-        <button
-          onClick={() => {
-            handleVote("down");
-          }}
-          className={currentVote === "down" ? "red" : null}
-        >
-          <img src={downArrow} className="icon" alt="down arrow icon"></img>
-        </button>
-      </section>
+      {typeof votes === "number" ? (
+        <section className="votes">
+          <button
+            onClick={() => {
+              handleVote("up");
+            }}
+            className={currentVote === "up" ? "green" : null}
+          >
+            <img src={upArrow} className="icon" alt="up arrow icon"></img>
+          </button>
+          <p>{optimisticVotes}</p>
+          <button
+            onClick={() => {
+              handleVote("down");
+            }}
+            className={currentVote === "down" ? "red" : null}
+          >
+            <img src={downArrow} className="icon" alt="down arrow icon"></img>
+          </button>
+        </section>
+      ) : null}
 
       {comment_count ? (
         <section className="comments">

@@ -29,3 +29,10 @@ export const voteById = (id, votes, article = true) => {
     inc_votes: votes,
   });
 };
+
+export const postComment = (id, author, body) => {
+  return ncNewsApi.post(`/articles/${id}/comments`, {
+    username: author,
+    body: body,
+  });
+};
