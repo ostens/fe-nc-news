@@ -12,7 +12,7 @@ function Profile() {
           : `Would you like to log in again as grumpy19? `}
       </p>
       <button
-        className="form-button"
+        className="form-button neutral"
         onClick={() => {
           setUser((currentUser) => (currentUser ? null : "grumpy19"));
         }}

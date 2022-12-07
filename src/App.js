@@ -9,7 +9,7 @@ import { useState } from "react";
 import { UserContext } from "./contexts/UserContext";
 
 function App() {
-  const [user, setUser] = useState("");
+  const [user, setUser] = useState("grumpy19");
 
   return (
     <UserContext.Provider value={{ user, setUser }}>
@@ -18,7 +18,6 @@ function App() {
         <Routes>
           <Route path="/" element={<ArticleList />} />
           <Route path="/articles/:id" element={<Article />} />
-
           <Route path="/profile" element={<Profile />} />
         </Routes>
       </main>
