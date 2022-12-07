@@ -5,8 +5,23 @@
 }
 
 .app {
-  display: grid;
-  justify-content: center;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 800px;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+}
+
+.profile-nav {
+  margin-left: auto;
+  margin-right: 10px;
+  display: flex;
+  align-items: center;
+  text-decoration: none;
 }
 
 p,
@@ -31,6 +46,12 @@ ul,
   display: block;
 }
 
+.profile {
+  display: block;
+  text-align: center;
+  margin: 20px;
+}
+
 li {
   border: 1px solid rgb(213, 212, 212);
   border-radius: 8px;
@@ -43,6 +64,38 @@ button {
   cursor: pointer;
   padding: 5px;
   border-radius: 100%;
+}
+
+.form-header {
+  display: flex;
+  align-items: center;
+}
+
+.cancel-button {
+  cursor: pointer;
+  padding: 5px;
+  margin-left: auto;
+  margin-right: 0px;
+  display: flex;
+}
+
+.loader {
+  border: 5px solid #f3f3f3;
+  border-top: 5px solid dodgerblue;
+  border-radius: 50%;
+  width: 12px;
+  height: 12px;
+  animation: spin 2s linear infinite;
+  margin-left: auto;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
 .green {
@@ -78,6 +131,7 @@ footer > section {
   width: 20px;
   height: 20px;
   opacity: 0.5;
+  margin: 5px;
 }
 
 .pill {
@@ -87,4 +141,60 @@ footer > section {
   padding: 5px;
   display: inline-block;
   text-transform: capitalize;
+}
+
+.comment {
+  padding: 5px;
+  margin-right: 20px;
+  margin-left: 20px;
+}
+
+textarea {
+  font-size: 1rem;
+  padding: 5px;
+  height: 80px;
+  position: relative;
+}
+
+.comment-label {
+  display: flex;
+}
+
+.form-buttons,
+.form-header {
+  display: flex;
+  align-items: flex-end;
+  margin: 5px;
+  flex: 1;
+}
+
+.comment-input {
+  width: 100%;
+  box-sizing: border-box;
+  border: 1px solid rgb(213, 212, 212);
+  border-radius: 8px;
+}
+
+.form-button {
+  background-color: seagreen;
+  color: white;
+  border-radius: 5px;
+  padding: 5px;
+  display: inline-block;
+  text-transform: capitalize;
+  font-size: 1rem;
+  margin-left: auto;
+  margin-right: 0px;
+  display: flex;
+}
+
+.neutral {
+  background-color: dodgerblue;
+  margin-right: auto;
+}
+
+*:disabled {
+  border: 1px solid #999999;
+  background-color: #cccccc;
+  color: #666666;
 }
