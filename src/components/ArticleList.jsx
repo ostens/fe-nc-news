@@ -8,26 +8,32 @@ import TopicNav from "./TopicNav";
 function ArticleList() {
   const [articles, setArticles] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+  const [order, setOrder] = useState(null);
 
-  const { topic } = useParams();
+  const { topic, sort_by } = useParams();
 
   useEffect(() => {
-    fetchArticles(topic).then((articles) => {
+    fetchArticles(topic, sort_by, order).then((articles) => {
       setArticles(articles);
       setIsLoading(false);
     });
-  }, [topic]);
+  }, [topic, sort_by, order]);
 
   return (
     <section>
-      <TopicNav selectedTopic={topic} />
+      <TopicNav
+        selectedTopic={topic}
+        selectedSort={sort_by}
+        order={order}
+        setOrder={setOrder}
+      />
       {isLoading ? (
         <p>Getting your articles...</p>
       ) : (
         <ul>
           {articles.map((article) => {
             return (
-              <li key={article.article_id}>
+              <li key={article.article_id} className="card">
                 <CardHeader
                   author={article.author}
                   created_at={article.created_at}
