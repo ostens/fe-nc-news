@@ -6,7 +6,7 @@ import { postComment } from "../utils/api";
 function NewComment({ setComments, articleId }) {
   const [newComment, setNewComment] = useState("");
   const [isWritingComment, setIsWritingComment] = useState(false);
-  const [isLoading, setIsLoading] = useState(false);
+  const [isPosting, setIsPosting] = useState(false);
   const [err, setErr] = useState(null);
 
   const { user } = useContext(UserContext);
@@ -19,11 +19,11 @@ function NewComment({ setComments, articleId }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    setIsLoading(true);
+    setIsPosting(true);
     setErr(null);
     postComment(articleId, user, newComment)
       .then((comment) => {
-        setIsLoading(false);
+        setIsPosting(false);
         setComments((currComments) => {
           return [comment, ...currComments];
         });
@@ -41,7 +41,7 @@ function NewComment({ setComments, articleId }) {
         <form onSubmit={handleSubmit}>
           <section className="form-header">
             <label htmlFor="comment" className="comment-label">
-              Comment:{" "}
+              Comment:
             </label>
             <button
               type="reset"
@@ -55,14 +55,14 @@ function NewComment({ setComments, articleId }) {
             autoFocus
             id="comment"
             className="comment-input"
-            disabled={isLoading}
+            disabled={isPosting}
             onChange={(e) => {
               setNewComment(e.target.value);
             }}
             value={newComment}
           />
           <section className="form-buttons">
-            {isLoading ? (
+            {isPosting ? (
               <div className="loader"></div>
             ) : (
               <button type="submit" className="form-button">

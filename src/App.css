@@ -24,6 +24,13 @@
   text-decoration: none;
 }
 
+.topic-nav {
+  display: flex;
+  align-items: center;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
 p,
 h3 {
   margin: 5px;
@@ -108,6 +115,7 @@ button {
 
 .link {
   text-decoration: none;
+  display: flex;
 }
 
 .card-footer {
@@ -134,13 +142,24 @@ footer > section {
   margin: 5px;
 }
 
-.pill {
+.pill,
+.topic {
   background-color: dodgerblue;
   color: white;
   border-radius: 5px;
   padding: 5px;
   display: inline-block;
   text-transform: capitalize;
+}
+
+.topic {
+  text-decoration: none;
+  margin: 10px;
+}
+
+.selected {
+  background-color: rgb(104, 178, 252);
+  opacity: 1;
 }
 
 .comment {
