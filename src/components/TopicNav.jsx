@@ -6,12 +6,17 @@ import { useViewport } from "../hooks/UseViewport";
 
 function TopicNav({ selectedTopic }) {
   const [topics, setTopics] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
   const { width, breakpoint } = useViewport();
 
   useEffect(() => {
-    fetchTopics().then((topics) => setTopics(topics));
+    fetchTopics().then((topics) => {
+      setTopics(topics);
+      setIsLoading(false);
+    });
   }, []);
 
+  if (isLoading) return <p>Getting available topics...</p>;
   return (
     <section className="topic-nav">
       {topics.map((topic) => (
