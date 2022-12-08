@@ -4,10 +4,12 @@ const ncNewsApi = axios.create({
   baseURL: "https://frantic-erin-ant.cyclic.app/api",
 });
 
-export const fetchArticles = () => {
-  return ncNewsApi.get("/articles").then(({ data: { articles } }) => {
-    return articles;
-  });
+export const fetchArticles = (topic) => {
+  return ncNewsApi
+    .get("/articles", { params: { topic } })
+    .then(({ data: { articles } }) => {
+      return articles;
+    });
 };
 
 export const fetchArticle = (id) => {
@@ -37,4 +39,10 @@ export const postComment = (id, author, body) => {
       body: body,
     })
     .then(({ data: { comment } }) => comment);
+};
+
+export const fetchTopics = () => {
+  return ncNewsApi.get("/topics").then(({ data: { topics } }) => {
+    return topics;
+  });
 };
