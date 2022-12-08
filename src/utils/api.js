@@ -4,9 +4,9 @@ const ncNewsApi = axios.create({
   baseURL: "https://frantic-erin-ant.cyclic.app/api",
 });
 
-export const fetchArticles = (topic) => {
+export const fetchArticles = (topic, sort_by, order) => {
   return ncNewsApi
-    .get("/articles", { params: { topic } })
+    .get("/articles", { params: { topic, sort_by, order } })
     .then(({ data: { articles } }) => {
       return articles;
     });
