@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { fetchTopics } from "../utils/api";
 import { close } from "../icons";
 import { useViewport } from "../hooks/UseViewport";
-import { calendar, ascending, votes } from "../icons";
+import { calendar, ascending, votes, comment } from "../icons";
 
 function TopicNav({ selectedTopic, selectedSort, order, setOrder }) {
   const [topics, setTopics] = useState([]);
@@ -13,6 +13,7 @@ function TopicNav({ selectedTopic, selectedSort, order, setOrder }) {
   const sortOptions = [
     { slug: "created_at", display: "Created", icon: calendar },
     { slug: "votes", display: "Votes", icon: votes },
+    { slug: "comment_count", display: "Comments", icon: comment },
   ];
 
   const handleClick = (e) => {

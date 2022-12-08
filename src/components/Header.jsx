@@ -8,7 +8,7 @@ function Header() {
 
   return (
     <header className="header">
-      <Link to="/" className="link">
+      <Link to="/articles" className="link">
         <h1>NC News</h1>
       </Link>
       <Link to="/profile" className="profile-nav">

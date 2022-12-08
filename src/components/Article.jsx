@@ -24,7 +24,7 @@ function Article() {
   else
     return (
       <main>
-        <Link to="/">
+        <Link to="/articles">
           <img src={backArrow} className="icon" alt="back icon" />
         </Link>
         <div className="article-container ">
