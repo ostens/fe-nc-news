@@ -18,7 +18,8 @@ body {
 .header {
   display: flex;
   align-items: center;
-  background-color: rgb(150, 192, 255);
+  background-color: rgb(255, 255, 255);
+  border-bottom: solid 1px rgb(213, 212, 212);
 }
 
 .profile-nav {
@@ -32,6 +33,12 @@ body {
 .sort-pill {
   display: flex;
   align-items: center;
+}
+
+.delete {
+  display: flex;
+  align-items: center;
+  margin-left: auto;
 }
 
 p,
@@ -199,6 +206,11 @@ footer > section {
 
 .sort.selected {
   background-color: rgb(193, 193, 193);
+}
+
+.sort.danger {
+  background-color: rgb(243, 32, 19);
+  color: white;
 }
 
 .topic,
