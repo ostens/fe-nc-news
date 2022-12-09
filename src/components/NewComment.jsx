@@ -65,7 +65,11 @@ function NewComment({ setComments, articleId }) {
             {isPosting ? (
               <div className="loader"></div>
             ) : (
-              <button type="submit" className="form-button">
+              <button
+                type="submit"
+                disabled={!newComment.length}
+                className="form-button"
+              >
                 Submit
               </button>
             )}
