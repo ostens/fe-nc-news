@@ -5,12 +5,12 @@ function Profile() {
   const { user, setUser } = useContext(UserContext);
 
   return (
-    <main className="profile">
-      <p>
+    <main className="page">
+      <h3>
         {user
           ? `You are logged in as ${user}`
           : `Would you like to log in again as grumpy19? `}
-      </p>
+      </h3>
       <button
         className="form-button neutral"
         onClick={() => {

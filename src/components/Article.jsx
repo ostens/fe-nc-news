@@ -6,20 +6,27 @@ import CardHeader from "./CardHeader";
 import CardFooter from "./CardFooter";
 import CommentList from "./CommentList";
 import { backArrow } from "../icons";
+import ErrorPage from "./ErrorPage";
 
 function Article() {
   const [article, setArticle] = useState({});
   const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState(null);
 
   const { id } = useParams();
 
   useEffect(() => {
-    fetchArticle(id).then((article) => {
-      setArticle(article);
-      setIsLoading(false);
-    });
+    fetchArticle(id)
+      .then((article) => {
+        setArticle(article);
+        setIsLoading(false);
+      })
+      .catch((err) => {
+        setError(err.response);
+      });
   }, [id]);
 
+  if (error) return <ErrorPage msg={error.data.msg} code={error.status} />;
   if (isLoading) return <p>Getting your article...</p>;
   else
     return (

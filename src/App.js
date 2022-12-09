@@ -7,6 +7,7 @@ import Article from "./components/Article";
 import Profile from "./components/Profile";
 import { useState } from "react";
 import { UserContext } from "./contexts/UserContext";
+import ErrorPage from "./components/ErrorPage";
 
 function App() {
   const [user, setUser] = useState("grumpy19");
@@ -23,6 +24,7 @@ function App() {
           <Route path="/articles/t/:topic/:sort_by" element={<ArticleList />} />
           <Route path="/article/:id" element={<Article />} />
           <Route path="/profile" element={<Profile />} />
+          <Route path="*" element={<ErrorPage />} />
         </Routes>
       </main>
     </UserContext.Provider>

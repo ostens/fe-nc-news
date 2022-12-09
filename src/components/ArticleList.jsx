@@ -4,21 +4,28 @@ import { Link, useParams } from "react-router-dom";
 import CardHeader from "./CardHeader";
 import CardFooter from "./CardFooter";
 import TopicNav from "./TopicNav";
+import ErrorPage from "./ErrorPage";
 
 function ArticleList() {
   const [articles, setArticles] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [order, setOrder] = useState(null);
+  const [error, setError] = useState(null);
 
   const { topic, sort_by } = useParams();
 
   useEffect(() => {
-    fetchArticles(topic, sort_by, order).then((articles) => {
-      setArticles(articles);
-      setIsLoading(false);
-    });
+    fetchArticles(topic, sort_by, order)
+      .then((articles) => {
+        setArticles(articles);
+        setIsLoading(false);
+      })
+      .catch((err) => {
+        setError(err.response);
+      });
   }, [topic, sort_by, order]);
 
+  if (error) return <ErrorPage msg={error.data.msg} code={error.status} />;
   return (
     <section>
       <TopicNav
