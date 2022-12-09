@@ -8,5 +8,5 @@ export const useViewport = () => {
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
   }, []);
-  return { width, breakpoint: 520 };
+  return { width, breakpoint: 570 };
 };

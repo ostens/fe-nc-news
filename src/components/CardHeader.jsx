@@ -31,6 +31,8 @@ function CardHeader({
     }
   };
 
+  const date = created_at.slice(0, 10);
+
   const handleCancel = (e) => {
     e.preventDefault();
     setIsWaitingConfirmation(false);
@@ -43,7 +45,7 @@ function CardHeader({
         <img src={profile} className="icon icon-large" alt="profile icon"></img>
         <section>
           <h3>{author}</h3>
-          <p className="text-small">{created_at}</p>
+          <p className="text-small">{date}</p>
         </section>
         {isDeleteable ? (
           <section id="confirm-delete">
