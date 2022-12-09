@@ -39,17 +39,17 @@ function CardHeader({
   if (err) return <p>{err}</p>;
   return (
     <header>
-      <section className="author">
+      <section className="section-header">
         <img src={profile} className="profile-icon" alt="profile icon"></img>
-        <section className="author-details">
+        <section>
           <h3>{author}</h3>
-          <p className="date-time">{created_at}</p>
+          <p className="text-small">{created_at}</p>
         </section>
         {isDeleteable ? (
-          <section className="delete">
+          <section className="btn-align-right">
             <button
               onClick={handleClick}
-              className={`sort ${isAwaitingConfirmation ? "danger" : null}`}
+              className={`pill ${isAwaitingConfirmation ? "danger" : null}`}
             >
               <img src={trash} className="icon" alt="bin icon" />
               {isAwaitingConfirmation && width > breakpoint
@@ -64,7 +64,7 @@ function CardHeader({
           </section>
         ) : null}
       </section>
-      {topic ? <p className="pill">{topic}</p> : null}
+      {topic ? <p className="pill filled-pill">{topic}</p> : null}
     </header>
   );
 }

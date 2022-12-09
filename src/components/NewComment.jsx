@@ -36,16 +36,16 @@ function NewComment({ setComments, articleId }) {
   };
   if (err) return <p>{err}</p>;
   return (
-    <section className="comment">
+    <section className="form-area">
       {isWritingComment ? (
         <form onSubmit={handleSubmit}>
-          <section className="form-header">
+          <section className="section-header">
             <label htmlFor="comment" className="comment-label">
               Comment:
             </label>
             <button
               type="reset"
-              className="cancel-button"
+              className="btn-align-right"
               onClick={handleReset}
             >
               <img className="icon" src={close} alt="close icon" />
@@ -54,30 +54,28 @@ function NewComment({ setComments, articleId }) {
           <textarea
             autoFocus
             id="comment"
-            className="comment-input"
+            className="form-input"
             disabled={isPosting}
             onChange={(e) => {
               setNewComment(e.target.value);
             }}
             value={newComment}
           />
-          <section className="form-buttons">
-            {isPosting ? (
-              <div className="loader"></div>
-            ) : (
-              <button
-                type="submit"
-                disabled={!newComment.length}
-                className="form-button"
-              >
-                Submit
-              </button>
-            )}
-          </section>
+          {isPosting ? (
+            <div className="loader"></div>
+          ) : (
+            <button
+              type="submit"
+              disabled={!newComment.length}
+              className="btn-align-right btn-primary"
+            >
+              Submit
+            </button>
+          )}
         </form>
       ) : (
         <button
-          className="form-button"
+          className="btn-align-right btn-primary"
           disabled={!user}
           title="Enabled title"
           onClick={() => setIsWritingComment(true)}

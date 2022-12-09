@@ -31,14 +31,14 @@ function CardFooter({ votes, comment_count, id, article = true }) {
 
   if (err) return <p>{err}</p>;
   return (
-    <footer className="card-footer">
+    <footer className="section-header">
       {typeof votes === "number" ? (
-        <section className="votes">
+        <section className="section-header">
           <button
             onClick={() => {
               handleVote("up");
             }}
-            className={currentVote === "up" ? "green" : null}
+            className={currentVote === "up" ? "selected" : null}
           >
             <img src={upArrow} className="icon" alt="up arrow icon"></img>
           </button>
@@ -47,7 +47,7 @@ function CardFooter({ votes, comment_count, id, article = true }) {
             onClick={() => {
               handleVote("down");
             }}
-            className={currentVote === "down" ? "red" : null}
+            className={currentVote === "down" ? "selected" : null}
           >
             <img src={downArrow} className="icon" alt="down arrow icon"></img>
           </button>
@@ -55,7 +55,7 @@ function CardFooter({ votes, comment_count, id, article = true }) {
       ) : null}
 
       {comment_count ? (
-        <section className="comments">
+        <section className="section-header">
           <img src={comment} className="icon" alt="speech bubble icon"></img>{" "}
           <p>{comment_count}</p>
         </section>

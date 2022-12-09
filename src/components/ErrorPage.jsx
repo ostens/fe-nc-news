@@ -6,8 +6,8 @@ function ErrorPage({ msg, code }) {
     <main className="page">
       <h1>{code || 404}</h1>
       <p>{msg || "Page not found"}</p>
-      <Link to="/articles" className="link form-button neutral">
-        Go Home
+      <Link to="/articles" className="btn btn-neutral">
+        Home
       </Link>
     </main>
   );

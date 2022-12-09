@@ -31,13 +31,13 @@ function TopicNav({ selectedTopic, selectedSort, order, setOrder }) {
   if (isLoading) return <p>Getting available topics...</p>;
   return (
     <section className="filter-nav">
-      <section className="topic-nav">
+      <section className="card section-header">
         {topics.map((topic) => (
           <Link
             to={`/articles/t/${topic.slug}`}
             value={topic.slug}
             key={topic.slug}
-            className={`topic ${
+            className={`pill filled-pill ${
               topic.slug === selectedTopic ? "selected" : null
             }`}
           >
@@ -49,10 +49,10 @@ function TopicNav({ selectedTopic, selectedSort, order, setOrder }) {
           {width > breakpoint ? <p>Remove filter</p> : null}
         </Link>
       </section>
-      <section id="hidden-background">
+      <section className="card-transparent">
         <button
           onClick={handleClick}
-          className={`sort ${order === "asc" ? "selected" : null}`}
+          className={`pill ${order === "asc" ? "selected" : null}`}
         >
           <img
             className={`icon ${order === "asc" ? null : "rotate"}`}
@@ -71,14 +71,12 @@ function TopicNav({ selectedTopic, selectedSort, order, setOrder }) {
               }
               value={sort.slug}
               key={index}
-              className={`sort ${
+              className={`pill ${
                 selectedSort === sort.slug ? "selected" : null
               }`}
             >
-              <section className="sort-pill">
-                <img src={sort.icon} className="icon" alt="sort icon" />
-                {width > breakpoint ? sort.display : null}
-              </section>
+              <img src={sort.icon} className="icon" alt="sort icon" />
+              {width > breakpoint ? sort.display : null}
             </Link>
           );
         })}

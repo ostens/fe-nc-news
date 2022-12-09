@@ -4,15 +4,15 @@
   color: rgb(56, 56, 56);
 }
 
-body {
-  background-color: rgb(255, 255, 255);
+p,
+h3 {
+  margin: 5px;
+  white-space: pre-line;
 }
 
-.app {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  max-width: 800px;
+h1 {
+  text-align: center;
+  margin: 20px;
 }
 
 .header {
@@ -30,29 +30,14 @@ body {
   text-decoration: none;
 }
 
-.sort-pill {
-  display: flex;
-  align-items: center;
-}
-
-.delete {
-  display: flex;
-  align-items: center;
+.app {
+  display: block;
   margin-left: auto;
+  margin-right: auto;
+  max-width: 800px;
 }
 
-p,
-h3 {
-  margin: 5px;
-  white-space: pre-line;
-}
-
-h1 {
-  text-align: center;
-  margin: 20px;
-}
-
-.date-time {
+.text-small {
   font-size: 0.8rem;
 }
 
@@ -71,8 +56,6 @@ ul,
 }
 
 .card,
-.topic-nav,
-.sort-nav,
 li {
   border: 1px solid rgb(213, 212, 212);
   background-color: white;
@@ -81,43 +64,11 @@ li {
   padding: 15px;
 }
 
-.topic-nav {
-  align-items: center;
-  display: flex;
-}
-
-#hidden-background {
+.card-transparent {
   margin: 0 20px;
   padding: 0 15px;
   display: flex;
   align-items: center;
-}
-
-button {
-  cursor: pointer;
-  padding: 5px;
-  border-radius: 100%;
-  border: none;
-  margin: 0 auto;
-}
-
-button:hover,
-.sort:hover,
-.topic:hover {
-  background-color: rgb(198, 198, 198);
-}
-
-.form-header {
-  display: flex;
-  align-items: center;
-}
-
-.cancel-button {
-  cursor: pointer;
-  padding: 5px;
-  margin-left: auto;
-  margin-right: 0px;
-  display: flex;
 }
 
 .loader {
@@ -139,28 +90,11 @@ button:hover,
   }
 }
 
-.green {
-  background: rgba(0, 128, 0, 0.3);
-}
-
-.red {
-  background: rgba(255, 0, 0, 0.3);
-}
-
-.link {
-  text-decoration: none;
-  display: flex;
-}
-
-.card-footer {
-  display: flex;
-}
-
-header > section,
-footer > section {
-  display: flex;
+.icon {
+  width: 20px;
+  height: 20px;
+  opacity: 0.5;
   margin: 5px;
-  align-items: center;
 }
 
 .profile-icon {
@@ -169,108 +103,105 @@ footer > section {
   opacity: 0.5;
 }
 
-.icon {
-  width: 20px;
-  height: 20px;
-  opacity: 0.5;
-  margin: 5px;
-}
-
 .icon.rotate {
   transform: rotate(180deg);
 }
 
-.pill,
-.topic {
+.pill {
+  border-radius: 5px;
+  padding: 8px;
+  margin: 10px;
+  display: inline-flex;
+  text-transform: capitalize;
+  background-color: rgb(234, 231, 231);
+  align-items: center;
+  border-radius: 20px;
+  font-size: 1em;
+  text-decoration: none;
+}
+
+.pill.filled-pill {
   background-color: dodgerblue;
   color: white;
   border-radius: 5px;
-  padding: 8px;
-  display: inline-block;
-  text-transform: capitalize;
 }
 
-.sort {
-  border-radius: 20px;
-  margin: 10px;
-  padding: 8px;
-  background-color: rgb(234, 231, 231);
-  text-transform: capitalize;
-  display: inline-block;
-  vertical-align: baseline;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1em;
-}
-
-.sort.selected {
+.pill.selected {
   background-color: rgb(193, 193, 193);
 }
 
-.sort.danger {
+.pill:hover {
+  background-color: rgb(198, 198, 198);
+}
+
+.pill.danger {
   background-color: rgb(243, 32, 19);
   color: white;
 }
 
-.topic,
-.sort {
+button,
+.btn {
+  cursor: pointer;
+  padding: 5px;
+  border-radius: 5px;
+  border: none;
+  margin: 0 auto;
+  font-size: 1rem;
+  text-transform: capitalize;
   text-decoration: none;
-  margin: 10px;
 }
 
-.topic.selected {
-  background-color: rgb(104, 178, 252);
-  opacity: 1;
+.btn-align-right {
+  margin-left: auto;
+  margin-right: 0px;
+  display: flex;
 }
 
-.comment {
+button.selected {
+  background-color: rgb(193, 193, 193);
+}
+
+button:hover {
+  background-color: rgb(198, 198, 198);
+}
+
+.btn-primary {
+  background-color: seagreen;
+  color: white;
+}
+
+.btn-neutral {
+  background-color: dodgerblue;
+  color: white;
+}
+
+.link {
+  text-decoration: none;
+  display: inline-flex;
+}
+
+.form-area {
   padding: 5px;
   margin-right: 20px;
   margin-left: 20px;
+}
+
+.section-header {
+  display: flex;
+  align-items: center;
 }
 
 textarea {
   font-size: 1rem;
   padding: 5px;
   height: 80px;
-  position: relative;
 }
 
-.comment-label {
-  display: flex;
-}
-
-.form-buttons,
-.form-header {
-  display: flex;
-  align-items: flex-end;
-  margin: 5px;
-  flex: 1;
-}
-
-.comment-input {
+.form-input {
   width: 100%;
   box-sizing: border-box;
   border: 1px solid rgb(213, 212, 212);
   border-radius: 8px;
-}
-
-.form-button {
-  background-color: seagreen;
-  color: white;
-  border-radius: 5px;
-  padding: 5px;
-  display: inline-block;
-  text-transform: capitalize;
-  font-size: 1rem;
-  margin-left: auto;
-  margin-right: 0px;
-}
-
-.neutral {
-  background-color: dodgerblue;
-  margin-right: auto;
 }
 
 *:disabled {
