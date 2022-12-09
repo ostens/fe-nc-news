@@ -7,6 +7,7 @@ import close from "./close.png";
 import calendar from "./calendar.png";
 import votes from "./popularity.png";
 import ascending from "./ascending.png";
+import trash from "./trash.png";
 
 export {
   upArrow,
@@ -18,4 +19,5 @@ export {
   calendar,
   ascending,
   votes,
+  trash,
 };
