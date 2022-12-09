@@ -1,10 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-function ErrorPage({ msg }) {
+function ErrorPage({ msg, code }) {
   return (
     <main className="page">
-      <h3>Oops!</h3>
+      <h1>{code || 404}</h1>
       <p>{msg || "Page not found"}</p>
       <Link to="/articles" className="link form-button neutral">
         Go Home

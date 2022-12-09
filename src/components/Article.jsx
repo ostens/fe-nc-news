@@ -22,11 +22,11 @@ function Article() {
         setIsLoading(false);
       })
       .catch((err) => {
-        setError(err.response.data.msg);
+        setError(err.response);
       });
   }, [id]);
 
-  if (error) return <ErrorPage msg={error} />;
+  if (error) return <ErrorPage msg={error.data.msg} code={error.status} />;
   if (isLoading) return <p>Getting your article...</p>;
   else
     return (

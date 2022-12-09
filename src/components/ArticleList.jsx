@@ -21,11 +21,11 @@ function ArticleList() {
         setIsLoading(false);
       })
       .catch((err) => {
-        setError(err.response.data.msg);
+        setError(err.response);
       });
   }, [topic, sort_by, order]);
 
-  if (error) return <ErrorPage msg={error} />;
+  if (error) return <ErrorPage msg={error.data.msg} code={error.status} />;
   return (
     <section>
       <TopicNav
