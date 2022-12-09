@@ -46,7 +46,7 @@ function CardHeader({
           <p className="text-small">{created_at}</p>
         </section>
         {isDeleteable ? (
-          <section className="btn-align-right">
+          <section id="confirm-delete">
             <button
               onClick={handleClick}
               className={`pill ${isAwaitingConfirmation ? "danger" : null}`}
@@ -57,7 +57,7 @@ function CardHeader({
                 : null}
             </button>
             {isAwaitingConfirmation ? (
-              <button onClick={handleCancel}>
+              <button onClick={handleCancel} className="btn-round ">
                 <img src={close} className="icon" alt="" />
               </button>
             ) : null}

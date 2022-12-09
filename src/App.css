@@ -173,6 +173,10 @@ button,
   display: flex;
 }
 
+#confirm-delete {
+  margin-left: auto;
+}
+
 button.selected {
   background-color: rgb(193, 193, 193);
 }
