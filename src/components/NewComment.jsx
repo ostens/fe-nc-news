@@ -45,7 +45,7 @@ function NewComment({ setComments, articleId }) {
             </label>
             <button
               type="reset"
-              className="btn-align-right"
+              className="btn-align-right btn-round"
               onClick={handleReset}
             >
               <img className="icon" src={close} alt="close icon" />

@@ -32,7 +32,7 @@ function Article() {
     return (
       <main>
         <Link to="/articles">
-          <img src={backArrow} className="icon" alt="back icon" />
+          <img src={backArrow} className="icon icon-medium" alt="back icon" />
         </Link>
         <div className="article-container ">
           <CardHeader

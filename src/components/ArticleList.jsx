@@ -3,7 +3,7 @@ import { fetchArticles } from "../utils/api";
 import { Link, useParams } from "react-router-dom";
 import CardHeader from "./CardHeader";
 import CardFooter from "./CardFooter";
-import TopicNav from "./TopicNav";
+import Filter from "./Filter";
 import ErrorPage from "./ErrorPage";
 
 function ArticleList() {
@@ -28,7 +28,7 @@ function ArticleList() {
   if (error) return <ErrorPage msg={error.data.msg} code={error.status} />;
   return (
     <section>
-      <TopicNav
+      <Filter
         selectedTopic={topic}
         selectedSort={sort_by}
         order={order}

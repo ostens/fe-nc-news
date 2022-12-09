@@ -40,7 +40,7 @@ function CardHeader({
   return (
     <header>
       <section className="section-header">
-        <img src={profile} className="profile-icon" alt="profile icon"></img>
+        <img src={profile} className="icon icon-large" alt="profile icon"></img>
         <section>
           <h3>{author}</h3>
           <p className="text-small">{created_at}</p>
@@ -64,7 +64,7 @@ function CardHeader({
           </section>
         ) : null}
       </section>
-      {topic ? <p className="pill filled-pill">{topic}</p> : null}
+      {topic ? <p className="pill filled-pill no-hover">{topic}</p> : null}
     </header>
   );
 }

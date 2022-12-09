@@ -12,7 +12,6 @@ h3 {
 
 h1 {
   text-align: center;
-  margin: 20px;
 }
 
 .header {
@@ -20,6 +19,7 @@ h1 {
   align-items: center;
   background-color: rgb(255, 255, 255);
   border-bottom: solid 1px rgb(213, 212, 212);
+  padding: 20px;
 }
 
 .profile-nav {
@@ -97,10 +97,16 @@ li {
   margin: 5px;
 }
 
-.profile-icon {
+.icon-medium {
+  width: 30px;
+  height: 30px;
+  margin: 10px;
+}
+
+.icon-large {
   width: 40px;
   height: 40px;
-  opacity: 0.5;
+  margin: 10px;
 }
 
 .icon.rotate {
@@ -139,16 +145,25 @@ li {
   color: white;
 }
 
+.no-hover {
+  pointer-events: none;
+}
+
 button,
 .btn {
   cursor: pointer;
   padding: 5px;
+  margin: 5px;
   border-radius: 5px;
   border: none;
-  margin: 0 auto;
   font-size: 1rem;
   text-transform: capitalize;
   text-decoration: none;
+  display: inline-flex;
+}
+
+.btn-round {
+  border-radius: 100%;
 }
 
 .btn-align-right {
@@ -178,6 +193,12 @@ button:hover {
 .link {
   text-decoration: none;
   display: inline-flex;
+  padding: 5px;
+}
+
+.link:hover {
+  background-color: rgb(222, 222, 222);
+  border-radius: 20px;
 }
 
 .form-area {

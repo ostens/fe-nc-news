@@ -38,16 +38,18 @@ function CardFooter({ votes, comment_count, id, article = true }) {
             onClick={() => {
               handleVote("up");
             }}
-            className={currentVote === "up" ? "selected" : null}
+            className={`btn-round ${currentVote === "up" ? "selected" : null}`}
           >
-            <img src={upArrow} className="icon" alt="up arrow icon"></img>
+            <img src={upArrow} className="icon " alt="up arrow icon"></img>
           </button>
           <p>{optimisticVotes}</p>
           <button
             onClick={() => {
               handleVote("down");
             }}
-            className={currentVote === "down" ? "selected" : null}
+            className={`btn-round ${
+              currentVote === "down" ? "selected" : null
+            }`}
           >
             <img src={downArrow} className="icon" alt="down arrow icon"></img>
           </button>

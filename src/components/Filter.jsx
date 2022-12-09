@@ -5,7 +5,7 @@ import { close } from "../icons";
 import { useViewport } from "../hooks/UseViewport";
 import { calendar, ascending, votes, comment } from "../icons";
 
-function TopicNav({ selectedTopic, selectedSort, order, setOrder }) {
+function Filter({ selectedTopic, selectedSort, order, setOrder }) {
   const [topics, setTopics] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const { width, breakpoint } = useViewport();
@@ -85,4 +85,4 @@ function TopicNav({ selectedTopic, selectedSort, order, setOrder }) {
   );
 }
 
-export default TopicNav;
+export default Filter;

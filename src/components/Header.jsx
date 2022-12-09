@@ -9,9 +9,9 @@ function Header() {
   return (
     <header className="header">
       <Link to="/articles" className="link">
-        <h1>NC News</h1>
+        <h1>🏠 NC News</h1>
       </Link>
-      <Link to="/profile" className="profile-nav">
+      <Link to="/profile" className="btn-align-right link">
         <img src={profile} alt="profile icon" className="icon" />
         {user ? <p>{user}</p> : <p>Login</p>}
       </Link>
