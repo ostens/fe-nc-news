@@ -31,7 +31,7 @@ function Article() {
   else
     return (
       <main>
-        <Link to="/articles">
+        <Link to="/articles" className="link link-round">
           <img src={backArrow} className="icon icon-medium" alt="back icon" />
         </Link>
         <div className="article-container ">
